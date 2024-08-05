@@ -1,12 +1,12 @@
-# BusinessTracker
+# CommerceSystem
 
-BusinessTracker es una aplicación web desarrollada en Java que permite la gestión de empresas y productos, así como el control del stock. Utiliza varias tecnologías modernas para proporcionar una solución robusta y eficiente para la administración de datos empresariales.
+CommerceSystem es una aplicación web desarrollada en Java que permite la gestión de artículos, compras y usuarios. Utiliza varias tecnologías modernas para proporcionar una solución robusta y eficiente para la administración de datos comerciales.
 
 ## Características
 
-- **Gestión de Empresas:** Alta, edición y listado de empresas.
-- **Gestión de Productos:** Alta, edición y listado de productos.
-- **Gestión de Stock:** Registro y gestión del inventario de productos.
+- **Gestión de Artículos:** Alta, edición y listado de artículos.
+- **Gestión de Compras:** Registro y gestión de compras.
+- **Gestión de Usuarios:** Alta, edición y listado de usuarios.
 - **Interfaz de Usuario:** Formularios y vistas para interactuar con la aplicación.
 
 ## Tecnologías Utilizadas
@@ -21,29 +21,30 @@ BusinessTracker es una aplicación web desarrollada en Java que permite la gesti
 
 ## Estructura del Proyecto
 
-- **src/main/java/com/masanz/ut2/businesstracker:**
+- **src/main/java/com/masanz/ut2/commercesystem:**
   - **ServerMain.java:** Clase principal para iniciar el servidor.
   - **dao/:** Clases DAO para la gestión de datos.
-    - `EmpresasDao.java`
-    - `ProductosDao.java`
-    - `StockDao.java`
-  - **db/:** Inicialización de la base de datos.
-    - `InicializarDb.java`
+    - `ArticulosDao.java`
+    - `ComprasDao.java`
+    - `UsuariosDao.java`
+  - **database/:** Gestión de la base de datos.
+    - `DatabaseManager.java`
   - **dto/:** Clases DTO para transferir datos.
-    - `Empresa.java`
-    - `Producto.java`
-    - `Stock.java`
-  - **service/:** Lógica de negocio.
-    - `Tareas.java`
+    - `Articulo.java`
+    - `Compras.java`
+    - `Usuario.java`
+  - **model/:** Modelos de datos.
+    - `Articulo.java`
 
 - **resources/:**
   - `create-tables.sql:` Script SQL para la creación de tablas.
   - `log4j2.xml:` Configuración de Log4j2.
   - **templates/:** Plantillas FreeMarker para las vistas.
-
-- **public/:**
-  - `bootstrap.min.css:` Estilos CSS.
-  - `bootstrap.bundle.min.js:` JavaScript de Bootstrap.
+    - `articulos.ftl`
+    - `home.ftl`
+    - `login.ftl`
+    - `usuario.ftl`
+    - `usuarios.ftl`
 
 ## Requisitos Previos
 
@@ -52,17 +53,17 @@ BusinessTracker es una aplicación web desarrollada en Java que permite la gesti
 - **IntelliJ IDEA** (opcional, pero recomendado)
 
 ## Instalación
+
+1. **Clonar el repositorio:**
    ```sh
    git clone <URL del repositorio>
-   cd BusinessTracker
+   cd CommerceSystem
+   ```
+2. **Compilar el proyecto con Maven:**
+    ```sh
    mvn clean install
-   mvn exec:java -Dexec.mainClass="com.masanz.ut2.businesstracker.ServerMain"
-  ```
-Contribuciones
-Las contribuciones son bienvenidas. Para contribuir, por favor sigue estos pasos:
-
-Realiza un fork del repositorio.
-Crea una rama con la nueva funcionalidad (git checkout -b nueva-funcionalidad).
-Realiza los cambios necesarios y haz commit (git commit -am 'Añadir nueva funcionalidad').
-Sube los cambios a tu fork (git push origin nueva-funcionalidad).
-Crea un Pull Request para revisar los cambios.
+   ```
+3. **Ejecutar la aplicación:**
+   ```sh
+   mvn exec:java -Dexec.mainClass="com.masanz.ut2.commercesystem.ServerMain"
+   ```
